@@ -4,10 +4,10 @@ backend:
 media_folder: "public/img"
 public_folder: "/img"
 collections:
-    - name: "image"
+  - name: "image"
     label: "image"
-    folder: "src/img"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: "src/img" # The path to the folder where the documents are stored
+    create: true 
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
     fields: 
-      - { label: "image", name: "title", widget: "image"}
+      - {label: "image", name: "title", widget: "image"}      
