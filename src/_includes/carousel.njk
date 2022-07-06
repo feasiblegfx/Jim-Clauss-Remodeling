@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>{{ title }}</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+            <link rel="stylesheet" href="/style.css">
+
+            <link rel="shortcut icon" href="/img/favicon.png">
+            <link rel="apple-touch-icon" href="/img/favicon.png">
+            <link rel="icon" sizes="192x192" href="/img/favicon.png">
+            
+
+
+
+    </head>
+
+    <body>
+
+
+
+      <div class="navbar">
+          
+          <div class="container-flex-nav">
+
+            
+              
+                <div class="nav-header">
+
+                  
+                  <a href="/">
+                    <img class ="header-logo" src="/img/JCR_white_logo.png"></a>
+                 
+                    <div class="desktop-nav">
+                    <ul>
+                      <li class="nav-link"><a href="/">Home</a></li>
+                      <li class="nav-link"><a href="/work/">Work</a></li>
+                      <li class="nav-link"><a href="/about/">About</a></li>
+                      <li class="nav-link"><a href="/contact/">Contact</a></li>
+
+                      
+                  </ul>
+                </div>
+
+                                          
+                    <img src ="/img/list.png" class="nav-toggle" id="navToggle">
+                        
+                </div>
+            
+
+                
+          </div>
+                
+          <nav class="nav-links" id="nav-links">
+            <ul>
+                <li class="nav-link"><a href="/">Home</a></li>
+                <li class="nav-link"><a href="/work/">Work</a></li>
+                <li class="nav-link"><a href="/about/">About</a></li>
+                <li class="nav-link"><a href="/contact/">Contact</a></li>
+
+                
+            </ul>
+        </nav>
+          
+      </div>
+
+ 
+
+<div class="section-1">
+    <div class="body-right">
+                
+    
+
+        <div id="myCarousel" class="carousel slide carousel-fade" 
+        data-bs-ride="carousel">  
+          <ol class="carousel-indicators">  
+            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+    
+        
+          </ol>
+        
+        
+        
+
+        
+        <div class="carousel-inner">
+        
+        {# <div class="carousel-item active" style="background-image:url(/img/work_1.jpg);"> #}
+         <div class="carousel-item active" style="background-image:url({{image}});">
+          <div class="carousel-container">
+            
+        
+          </div>
+        
+        </div>
+        
+        
+        <div class="carousel-item" style="background-image:url({{image2}});">
+          <div class="carousel-container">
+            
+        
+          </div>
+        
+        </div>
+        
+        
+        <div class="carousel-item" style="background-image:url({{image3}});">
+          <div class="carousel-container">
+            
+        
+          </div>
+        
+        </div>
+        
+        
+        
+        
+        <div class="carousel-item" style="background-image:url({{image4}});">
+          <div class="carousel-container">
+            
+        
+          </div>
+        
+        </div>
+        
+        
+        
+        
+        </div>
+
+        
+        
+        <a href="#myCarousel" class="carousel-control-prev" role="button" data-bs-slide="prev">
+        
+          <!-- <span class="carousel-control-prev-icon" aria-hidden="true"</span> -->
+        
+            <img src="/img/Logo_Left Arrow.png" class="carousel-icon" aria-hidden="true">
+
+
+
+        </a>
+        
+        <a href="#myCarousel" class="carousel-control-next" role="button" data-bs-slide="next">
+
+          <img src="/img/Logo_Right Arrow.png" class="carousel-icon" aria-hidden="true">
+        </a>
+        
+        
+        
+        
+        
+               
+      </div>       
+      </div>
+          
+       
+        
+      </div>
+
+
+
+
+     {{ content | safe }}
+     {% include 'footer.njk' %}
+
+
+
+
+
+
+
+<script>
+
+// nav toggle - select button and links
+const navToggle = document.querySelector("#navToggle")
+const nav = document.querySelector("#nav-links")
+
+// add event listener
+navToggle.addEventListener("click", () => {
+    nav.classList.toggle('nav-open')
+})
+
+
+
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = {
+    threshold: 0,
+    
+  };
+
+
+const appearOnScroll = new IntersectionObserver(function(entires, appearOnScroll) {
+    entires.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+            }else{
+                entry.target.classList.add('appear')
+                appearOnScroll.unobserve(entry,target);
+            }          
+        });
+}, 
+appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      <script>
+let spinnerWrapper = document.querySelector('.spinner-wrapper');
+  
+window.addEventListener('load', function () {
+    // spinnerWrapper.style.display = 'none';
+    spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+});
+</script>     
+    
+
+
+
+
+
+    </body>
+    
+    </html>
+
